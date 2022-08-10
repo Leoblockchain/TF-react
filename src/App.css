@@ -1,0 +1,9 @@
+.OnCart{
+    position: fixed;
+    top:0;
+    right: 0;
+    width: 40vw;
+    height: 100vh;
+    background-color: #000000;  
+}
+
