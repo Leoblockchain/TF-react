@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useContext } from 'react'
 import OnCart from './components/OnCart'
+import { AppContext } from './context/AppContext'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -9,42 +10,38 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './components/Storage'
 import './App.css'
 
+  
+  
 function App() {
   
-  const [products, setProducts] = useState([])
-
-  const getProducts = async () => {
-      const response = await fetch('https://dummyjson.com/products')
-      const responseJson = await response.json()
-      const arrayProducts = responseJson.products
-      setProducts(arrayProducts)
-    
-    }
-    
-    useEffect(() => { 
-     
-      getProducts();
-    
-    },[])   
+  const {products} = useContext(AppContext)  
+  const [ isOpen, setIsOpen ] = useState(false)
+  const [ cart, setCart  ] = useState([])   
   
   
-const [isOpen, setIsOpen] = useState(false)
-
+  
+  function identProduct(id) {
+    const findProduct =products.find(prod => prod.id === parseInt(id))
+    return (findProduct)
+  }
+  
+  
+ 
 return (
 
-<Container fluid>
+  <Container fluid>
      
-     <Header setIsOpen={setIsOpen} isOpen={isOpen} /> 
+    <Header setIsOpen={setIsOpen} isOpen={isOpen}/> 
   
-<Col>
+    <Col>
  
-  <Row>
+      <Row>
  
-        {products.map(prod => <Storage prod={prod} key={prod.id}/>)}
+        {products.map(prod => <Storage prod={prod} key={prod.id} cart={cart} setCart= {setCart} identProduct={identProduct}/>)}
 
-  </Row>
+      </Row>
 
-</Col>
+    </Col>
 
 <OnCart isOpen={isOpen}/>
 

@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { useState, } from 'react'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 
+export default function Storage({prod, cart, setCart, identProduct }) {
+     
+  
+    function addToCart(e) {
+        const pushCart = identProduct(e.target.id)
+        setCart([...cart, pushCart])
+        // {cart.lenght>0 ? <p>something in the cart</p>: <p>no hay productos in the cart</p>}
+  
 
-export default function Storage({prod}) {
-
+}
     return (
         <Col className= 'mb-3'>
             
             <Card bg={"secondary"} border= "dark" style={{ width: '18rem', height: '35rem' }} >
             
-                <Card.Img variant="top" src={prod.thumbnail} alt={prod.title}/>
+                <Card.Img className='iconArticule' variant="top" src={prod.thumbnail} alt={prod.title}/>
             
                     <Card.Body>
             
@@ -21,14 +28,14 @@ export default function Storage({prod}) {
                     
                         <h2 className='card-text text-danger'> $ {prod.price}</h2>
                 
-                        <Button variant="primary" onClick={() => console.log('click!')}> BUY </Button>
+                        <Button variant="primary" onClick={addToCart} id={prod.id}> BUY </Button>
             
                     </Card.Body>
 
             </Card>
         </Col>    
-        )  
-}
+    )  
+    }
     
     
 

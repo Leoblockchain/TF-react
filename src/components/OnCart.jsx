@@ -14,7 +14,7 @@ animate={isOpen ? 'open' : 'closed'}
 
 variants={variants}
 
-transitions={{ bounce: 0}}
+transition={{ bounce: 0}}
 
 >
 
