@@ -1,0 +1,27 @@
+.TitleCart {
+   
+    height: 5vw;
+    color:rgb(60, 12, 67);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    border: 2px solid rgb(0, 0, 0);
+    background-color:rgb(255, 128, 0);
+}
+
+.RowCart{
+    height: 25vw;
+    color:rgb(0, 38, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(0, 0, 0);
+}
+.DivCart{
+    height: 100%;
+    background-color:rgb(204, 255, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}

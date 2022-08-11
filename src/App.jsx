@@ -43,7 +43,7 @@ return (
 
     </Col>
 
-<OnCart isOpen={isOpen}/>
+<OnCart isOpen={isOpen} cart={cart}/>
 
 </Container>
 

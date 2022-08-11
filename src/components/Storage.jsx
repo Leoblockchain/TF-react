@@ -9,7 +9,7 @@ export default function Storage({prod, cart, setCart, identProduct }) {
     function addToCart(e) {
         const pushCart = identProduct(e.target.id)
         setCart([...cart, pushCart])
-        // {cart.lenght>0 ? <p>something in the cart</p>: <p>no hay productos in the cart</p>}
+        
   
 
 }

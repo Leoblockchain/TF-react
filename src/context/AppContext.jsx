@@ -21,10 +21,10 @@ export default function AppProvider({children}) {
         
         },[])   
 
-    return (
-        <AppContext.Provider value={{products}}>
+        return (
+         <AppContext.Provider value={{products}}>
             {children}
-        </AppContext.Provider>
-    )
+         </AppContext.Provider>
+        )
 
 }
