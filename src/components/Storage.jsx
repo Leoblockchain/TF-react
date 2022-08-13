@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { AppContext } from '../context/AppContext'
 import Swal from 'sweetalert'
 import Button from 'react-bootstrap/Button'
@@ -20,6 +20,7 @@ export default function Storage({prod, identProduct }) {
         return 
         }   
         setCart([...cart, pushCart])
+        sumPrice(prod.price)
         Swal( "EL ARTICULO HA SIDO AÑADIDO",  "Exitosamente")
     } 
         return (
@@ -38,10 +39,8 @@ export default function Storage({prod, identProduct }) {
                     
                         <h2 className='card-text text-danger'> $ {prod.price}</h2>
                 
-                        <Button variant="primary" onClick={(e) =>{
-                            addToCart(e)
-                            sumPrice(prod.price)
-                        }} id={prod.id}> Añadir al Carrito  </Button>
+                        <Button variant="primary" onClick={(e) =>{addToCart(e)}} id={prod.id}> Añadir al Carrito  </Button>                         
+                        
             
                     </Card.Body>
 
