@@ -4,6 +4,7 @@ import Swal from 'sweetalert'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
+import styles from '../styles/Storage.module.css'
 
 export default function Storage({prod, identProduct }) {
     
@@ -25,11 +26,11 @@ export default function Storage({prod, identProduct }) {
     } 
         return (
         
-        <Col className= 'mb-3'>
+        <Col className= 'mt-4'>
             
-            <Card bg={"secondary"} border= "dark" style={{ width: '18rem', height: '35rem' }} >
+            <Card bg={"primary"} border= "dark" style={{ width: '18rem', height: '35rem' }} >
             
-                <Card.Img className='iconArticule' variant="top" src={prod.thumbnail} alt={prod.title}/>
+                <Card.Img className={styles.iconArticule} variant="top" src={prod.thumbnail} alt={prod.title}/>
             
                     <Card.Body>
             
@@ -38,8 +39,9 @@ export default function Storage({prod, identProduct }) {
                         <Card.Text className='text-light'>{prod.description}</Card.Text>
                     
                         <h2 className='card-text text-danger'> $ {prod.price}</h2>
-                
-                        <Button variant="primary" onClick={(e) =>{addToCart(e)}} id={prod.id}> Añadir al Carrito  </Button>                         
+                        <h1></h1>
+
+                        <Button variant="outline-dark" className='text-dark' onClick={(e) =>{addToCart(e)}} id={prod.id}> Añadir al Carrito  </Button>                         
                         
             
                     </Card.Body>

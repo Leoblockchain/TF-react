@@ -1,5 +1,6 @@
 import React,{ useContext} from 'react'
 import { AppContext } from '../context/AppContext'
+
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/esm/Button'
 import Row from 'react-bootstrap/Row'
@@ -23,13 +24,16 @@ export default function InCart({ delArticles }) {
                                                 
                             <div className={styles.DivCart}>
                                 <img src={item.thumbnail} alt={item.title} className='col-5'/>
-                                <h3>{item.brand}</h3>
-                                <h2>${item.price}</h2>
-                                <Button variant='danger'onClick={()=> {
-                                    delArticles(item.id)
-                                    restPrice(item.price)
-                                }}>Eliminar</Button>
-                        
+                                <ul className={styles.listCart}>
+                                    <li><h3>{item.brand} </h3></li>
+                                    <li><h4>{item.title}</h4></li>
+                                    <li><h2>${item.price}</h2></li>
+                                    <li><Button variant='dark'onClick={()=> {
+                                        delArticles(item.id)
+                                        restPrice(item.price)
+                                    }}>Eliminar</Button></li>
+                                    
+                                </ul>
                             </div> 
                                 
                         </Row>

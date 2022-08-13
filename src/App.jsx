@@ -8,7 +8,10 @@ import Storage from './components/Storage'
 import Header from './components/Header'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './components/Storage'
-import './App.css'   
+import './App.css'  
+import styles from './styles/App.module.css'
+
+
   
 function App() {
   
@@ -27,13 +30,13 @@ function App() {
  
 return (
 
-  <Container fluid>
+  <Container className={styles.AppDivMain}>
      
     <Header setIsOpen={setIsOpen} isOpen={isOpen}/> 
   
     <Col>
  
-      <Row>
+      <Row className={styles.AppCol}>
  
         {products.map(prod => <Storage prod={prod} key={prod.id} identProduct={identProduct} delArticles={delArticles}/>)}
 

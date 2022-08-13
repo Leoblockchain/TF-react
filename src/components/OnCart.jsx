@@ -6,6 +6,7 @@ import InCart from './InCart'
 import Button from 'react-bootstrap/Button'
 import styles from '../styles/OnCart.module.css'
 import Swal from 'sweetalert'
+
 export default function OnCart({isOpen, delArticles}) {
     const { cart,setCart, setTotal }=useContext(AppContext)
     const variants = {
@@ -23,7 +24,7 @@ export default function OnCart({isOpen, delArticles}) {
     } 
     return (
 
-        <motion.div className='OnCart'
+        <motion.div className={styles.OnCart}
 
     animate={isOpen ? 'open' : 'closed'}
 
@@ -33,8 +34,8 @@ export default function OnCart({isOpen, delArticles}) {
     >
 {cart.length>0 ? <InCart delArticles={delArticles}/>: <NothingInCart/>}
 
-<Button variant='danger' onClick={()=>{deleteCart()}} className='col-12' size='lg'>Vaciar Carrito</Button>
-<Button variant='primary' onClick={()=>{endBuy()}} className='col-12' size='lg'>Comprar</Button>
+<Button variant='dark' onClick={()=>{deleteCart()}} className='col-12' size='lg'>Vaciar Carrito</Button>
+<Button variant='danger' onClick={()=>{endBuy()}} className='col-12' size='lg'>Comprar</Button>
 
 </motion.div>
 

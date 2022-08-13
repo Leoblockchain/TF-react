@@ -1,0 +1,11 @@
+.navBar{
+    width: 100%;
+    background: rgb(195,34,56);
+    background: linear-gradient(0deg, rgba(195,34,56,1) 0%, rgba(202,45,253,0.896796218487395) 98%);
+    height: 5vw;
+    position: fixed;
+    z-index: 0;
+    margin: 0;
+    
+
+}
