@@ -1,37 +1,42 @@
-import React from 'react'
+import React,{ useContext} from 'react'
+import { AppContext } from '../context/AppContext'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/esm/Button'
 import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import styles from '../styles/InCart.module.css'
 
-export default function InCart({cart}) {
-    return (
-        <Container fluid>
-             <Row className={styles.TitleCart}>
-             <h2 >TU COMPRA</h2>   
-             </Row>
-            
-            
-            {cart.map (item=> {
-               
-                return (
-                    <Row className={styles.RowCart} key={item.title}>
+export default function InCart({ delArticles }) {
+    
+    const{ total, setTotal, cart}= useContext(AppContext)
+        
+    function restPrice (price){
+            setTotal(total-price)
+    }
+        return (
+            <Container fluid>
+                <Row className={styles.TitleCart}>
+                <h2 className='text '>Llévalo por sólo ${total}</h2>   
+                </Row>                       
+                {cart.map (item=> {
+                    return (
+                        <Row className={styles.RowCart} key={item.id} >
+                                                
+                            <div className={styles.DivCart}>
+                                <img src={item.thumbnail} alt={item.title} className='col-5'/>
+                                <h3>{item.brand}</h3>
+                                <h2>${item.price}</h2>
+                                <Button variant='danger'onClick={()=> {
+                                    delArticles(item.id)
+                                    restPrice(item.price)
+                                }}>Eliminar</Button>
                         
-                        
-                       
-                        <div className={styles.DivCart}>
-                            <h3>{item.brand}</h3>
-                            <img src={item.thumbnail} alt={item.title} className='col-5'/>
-                            <h2>${item.price}</h2>
-                            <Button variant='danger'>Eliminar</Button>
-                        </div> 
-                            
-                    </Row>
-                )
-            })}
-            
-        </Container>
-    )
+                            </div> 
+                                
+                        </Row>
+                    )
+                })}
+                
+            </Container>
+        )
 
 }

@@ -8,24 +8,22 @@ import Storage from './components/Storage'
 import Header from './components/Header'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './components/Storage'
-import './App.css'
-
-  
+import './App.css'   
   
 function App() {
   
-  const {products} = useContext(AppContext)  
+  const {products, cart, setCart} = useContext(AppContext)  
   const [ isOpen, setIsOpen ] = useState(false)
-  const [ cart, setCart  ] = useState([])   
-  
-  
-  
+   
   function identProduct(id) {
-    const findProduct =products.find(prod => prod.id === parseInt(id))
+    const findProduct = products.find(prod => prod.id === parseInt(id))
     return (findProduct)
   }
-  
-  
+  function delArticles(id) {
+    const artsFuera = cart.filter(item => item.id !==(id))
+    setCart(artsFuera)
+    
+    }
  
 return (
 
@@ -37,13 +35,13 @@ return (
  
       <Row>
  
-        {products.map(prod => <Storage prod={prod} key={prod.id} cart={cart} setCart= {setCart} identProduct={identProduct}/>)}
+        {products.map(prod => <Storage prod={prod} key={prod.id} identProduct={identProduct} delArticles={delArticles}/>)}
 
       </Row>
 
     </Col>
 
-<OnCart isOpen={isOpen} cart={cart}/>
+<OnCart isOpen={isOpen} delArticles={delArticles}/>
 
 </Container>
 

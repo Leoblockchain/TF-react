@@ -2,9 +2,10 @@
     position: fixed;
     top:0;
     right: 0;
-    width: 40vw;
+    width: 30vw;
     height: 100vh;
     background-color: #000000;  
+    overflow-y: scroll;
 }
 .iconArticule {
  height: 200px;
